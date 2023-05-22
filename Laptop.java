@@ -53,30 +53,30 @@ public class Laptop {
         boolean doesUserContinueEnterData = true;
 
         while (doesUserContinueEnterData) {
-            int userNumber = getNumberSuggestInput("the number of criteria");
+            int userNumber = getNumberSuggestInput("Введите от 1 до 6, затем 0");
             switch (userNumber) {
                 case 1:
-                    int suggestRam = getNumberSuggestInput("the min size of ram");
+                    int suggestRam = getNumberSuggestInput("Укажите минимальный размер оперативной памяти");
                     criteria.put(userNumber, suggestRam);
                     break;
                 case 2:
-                    int suggestHdd = getNumberSuggestInput("the min size of HDD");
+                    int suggestHdd = getNumberSuggestInput("Укажите минимальный размер жесткого диска");
                     criteria.put(userNumber, suggestHdd);
                     break;
                 case 3:
-                    String suggestOS = getLineSuggestInput("name of OS, like (Windows, Linux, MacOS)");
+                    String suggestOS = getLineSuggestInput("Укажите имя операционной системы (Windows, Linux, MacOS)");
                     criteria.put(userNumber, suggestOS);
                     break;
                 case 4:
-                    String suggestColor = getLineSuggestInput("wanted color");
+                    String suggestColor = getLineSuggestInput("Укажите цвет");
                     criteria.put(userNumber, suggestColor);
                     break;
                 case 5:
-                    int suggestSsd = getNumberSuggestInput("the min size of SSD");
+                    int suggestSsd = getNumberSuggestInput("Укажите минимальный объем SSD");
                     criteria.put(userNumber, suggestSsd);
                     break;
                 case 6:
-                    float suggestScreenSize = getFloatSuggestInput("necessary screen size, (like 20.0)");
+                    float suggestScreenSize = getFloatSuggestInput("Укажите диагональ экрана, (like 20.0)");
                     criteria.put(userNumber, suggestScreenSize);
                     break;
                 default:
@@ -85,8 +85,7 @@ public class Laptop {
             }
         }
 
-        // System.out.println(criteria);
-
+        
         filterLotsByCriteria(store, criteria);
     }
 
@@ -149,7 +148,7 @@ public class Laptop {
         
         while (!iScanner.hasNextInt()) {
             iScanner.next();
-            System.out.print("Only numbers allowed. Try again: ");
+            System.out.print("Необходимо ввести число. Повторите попытку: ");
         }
 
         number = iScanner.nextInt();
@@ -166,7 +165,7 @@ public class Laptop {
         
         while (!iScanner.hasNextFloat()) {
             iScanner.next();
-            System.out.print("Only numbers allowed. Try again: ");
+            System.out.print("Необходимо ввести число. Повторите попытку: ");
         }
 
         number = iScanner.nextFloat();
@@ -186,13 +185,13 @@ public class Laptop {
     }
 
     public static Set<Map<Integer, Object>> filterLotsByCriteria(Set<Map<Integer, Object>> store, Map<Integer, Object> criteria) {
-        System.out.println("\nFind lost by next criteria:");
+        System.out.println("\nПоиск по критериям:");
         
         for (var value : criteria.entrySet()) {
             System.out.printf("%d - %s\n", value.getKey(), value.getValue());   
         }
 
-        System.out.println("\nSearch result:");
+        System.out.println("\nНайденные результаты:");
 
         Set<Map<Integer, Object>> filter = new HashSet<>();
 
